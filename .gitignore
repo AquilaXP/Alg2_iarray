@@ -22,9 +22,6 @@ _*.bat
 
 Makefile*
 
-*.vcxproj
-*.vcxproj.*
-*.sln
 *.manifest
 *.res
 
