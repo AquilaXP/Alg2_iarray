@@ -17,6 +17,30 @@ public:
         : m_vector(vector)
     {
     }
+
+    VectorArray( const VectorArray< Ty >& other )
+    {
+        m_data.reset( new value_type[other.m_size] );
+        for( size_t i = 0; i < other.m_size; ++i )
+            m_data[i] = other.m_data[i];
+
+        m_size = other.m_size;
+        m_capacity = m_size;
+        m_vector = other.m_vector;
+    }
+    VectorArray& operator = ( const VectorArray< Ty >& other )
+    {
+        m_data.reset( new value_type[other.m_size] );
+        for( size_t i = 0; i < other.m_size; ++i )
+            m_data[i] = other.m_data[i];
+
+        m_size = other.m_size;
+        m_capacity = m_size;
+        m_vector = other.m_vector;
+
+        return *this;
+    }
+
     size_type size() const override
     {
         return m_size;
